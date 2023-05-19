@@ -26,25 +26,28 @@ public class ParallelRaceProject extends JFrame {
         setResizable(false);
 
         registrationLabel = new JLabel("Registrar corredor");
+        registrationLabel.setHorizontalAlignment(SwingConstants.LEFT);
         
         JPanel registrationPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         registrationTextField = new JTextField();
-        registrationTextField.setPreferredSize(new Dimension(150, registrationTextField.getPreferredSize().height));
+        registrationTextField.setPreferredSize(new Dimension(350, registrationTextField.getPreferredSize().height));
         registrationTextField.setAlignmentX(Component.LEFT_ALIGNMENT);
         registerButton = new JButton("Registrar");
-        registerButton.setAlignmentX(Component.LEFT_ALIGNMENT);
         
         registrationPanel.add(registrationTextField);
         registrationPanel.add(registerButton);
         
         registeredParticipantsLabel = new JLabel("Corredores registrados");
+        registeredParticipantsLabel.setHorizontalAlignment(SwingConstants.LEFT);
+                
         participantsTextArea = new JTextArea();
         participantsTextArea.setEditable(false);
         participantsTextArea.setRows(5);
         JScrollPane participantsScrollPane = new JScrollPane(participantsTextArea);
-
-        resultsLabel = new JLabel("Resultados");
         
+        resultsLabel = new JLabel("Resultados");
+        resultsLabel.setHorizontalAlignment(SwingConstants.LEFT);
+
         JPanel resultsPanel = new JPanel(new GridLayout(1, 2));
 
         orderTextArea = new JTextArea();
@@ -69,7 +72,7 @@ public class ParallelRaceProject extends JFrame {
         add(registrationLabel);
         add(registrationPanel);
         add(registeredParticipantsLabel);
-        add(participantsTextArea);
+        add(participantsScrollPane);
         add(resultsLabel);        
         add(resultsPanel);
 
