@@ -16,7 +16,7 @@ public class ThreadRunner implements Runnable {
     @Override
     public void run() {
         try {
-            Thread.sleep(runner.getSpeed() * 100);
+            Thread.sleep(runner.getSpeed() * 100); // This is only set to 100 to make it quicker, it can be modified accordingly
             synchronized (orderTextArea) {
                 orderTextArea.append("¡" + runner.getName() + " ha llegado a la meta en logar número " + counter + "!\n");
                 counter +=1;
