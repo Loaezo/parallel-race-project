@@ -21,6 +21,8 @@ public class ParallelRaceProject extends JFrame {
     private JButton exitButton;
     private Runner[] registeredRunners;
     private int numRegisteredRunners;
+    private static int counter = 1;
+
     
     public ParallelRaceProject() {
         setTitle("Carrera Atlética");
@@ -52,7 +54,8 @@ public class ParallelRaceProject extends JFrame {
                         Runner runner = new Runner(name);
                         registeredRunners[numRegisteredRunners] = runner;
                         numRegisteredRunners++;
-                        participantsTextArea.append(runner.getName() + " - Velocidad: " + runner.getSpeed() + "\n");
+                        participantsTextArea.append(counter + " - " + runner.getName() + "\n");
+                        counter += 1;
                         registrationTextField.setText("");
                     }
                 } else {
