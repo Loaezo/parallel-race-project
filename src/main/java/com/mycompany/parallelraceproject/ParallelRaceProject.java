@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import java.util.List;
-import java.util.ArrayList;
 
 public class ParallelRaceProject extends JFrame {
     private JLabel registrationLabel;
@@ -22,7 +20,6 @@ public class ParallelRaceProject extends JFrame {
     private Runner[] registeredRunners;
     private int numRegisteredRunners;
     private static int counter = 1;
-
     
     public ParallelRaceProject() {
         setTitle("Carrera Atlética");
@@ -99,30 +96,26 @@ public class ParallelRaceProject extends JFrame {
                     registerButton.setEnabled(false);
                     restartButton.setEnabled(false);
                     startButton.setEnabled(false);
-                    Thread[] threads = new Thread[numRegisteredRunners];
+
+                    counter = 1; // Reinicia el contador
+
                     for (int i = 0; i < numRegisteredRunners; i++) {
-                        threads[i] = new Thread(new ThreadRunner(registeredRunners[i], orderTextArea));
-                    }
-                    for (Thread thread : threads) {
+                        ThreadRunner threadRunner = new ThreadRunner(registeredRunners[i], orderTextArea);
+                        Thread thread = new Thread(threadRunner);
                         thread.start();
                     }
-                    for (Thread thread : threads) {
-                        try {
-                            thread.join();
-                        } catch (InterruptedException ie) {
-                            ie.printStackTrace();
-                        }
-                        }
+
                     registerButton.setEnabled(true);
                     restartButton.setEnabled(true);
                     startButton.setEnabled(true);
-                    JOptionPane.showMessageDialog(null, "¡Carrera finalizada!");
 
                 } else {
                     JOptionPane.showMessageDialog(null, "¡No vamos a desperdiciar carriles! Registra a 5 corredores.");
                 }
             }
+            
         });
+
 
         restartButton.addActionListener(new ActionListener() {
             @Override
