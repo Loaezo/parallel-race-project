@@ -21,7 +21,7 @@ public class Runner {
 
     private int generateRandomSpeed() {
         Random random = new Random();
-        return random.nextInt(31);
+        return random.nextInt(21);
     }
 }
 

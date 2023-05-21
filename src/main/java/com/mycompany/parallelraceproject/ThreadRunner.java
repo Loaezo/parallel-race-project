@@ -16,7 +16,7 @@ public class ThreadRunner implements Runnable {
         @Override
         public void run() {
             try {
-                Thread.sleep(runner.getSpeed() * 100);
+                Thread.sleep(runner.getSpeed() * 1000);
                 synchronized (orderTextArea) {
                     if (!isRaceFinished) {
                         SwingUtilities.invokeLater(() -> {
