@@ -16,11 +16,11 @@ public class ThreadRunner implements Runnable {
         @Override
         public void run() {
             try {
-                Thread.sleep(runner.getSpeed() * 1000);
+                Thread.sleep((long) (runner.getSpeed() * 1000));
                 synchronized (orderTextArea) {
                     if (!isRaceFinished) {
                         SwingUtilities.invokeLater(() -> {
-                            orderTextArea.append("¡" + runner.getName() + " ha llegado a la meta en lugar número " + counter + "!\n");
+                            orderTextArea.append("¡" + runner.getName() + " ha llegado a la meta en lugar número " + counter + "!\nVelocidad: " + 50/runner.getSpeed() + " m/s\n");
                             counter++;
                             
                         });

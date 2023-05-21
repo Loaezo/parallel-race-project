@@ -4,7 +4,8 @@ import java.util.Random;
 
 public class Runner {
     private String name;
-    private int speed;
+    private float speed;
+    private float randomNum;
 
     public Runner(String name) {
         this.name = name;
@@ -15,14 +16,14 @@ public class Runner {
         return name;
     }
 
-    public int getSpeed() {
+    public float getSpeed() {
         return speed;
     }
 
-    private int generateRandomSpeed() {
+    private float generateRandomSpeed() {
         Random random = new Random();
-        return random.nextInt(21);
-    }
+        randomNum = random.nextInt(21);
+        return (50/randomNum);
 }
-
+}
 
