@@ -22,7 +22,7 @@ public class Runner {
 
     private float generateRandomSpeed() {
         Random random = new Random();
-        randomNum = random.nextInt(21);
+        randomNum = random.nextInt(21) + 1;
         return (50/randomNum);
 }
 }
